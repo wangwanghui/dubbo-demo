@@ -1,4 +1,4 @@
-package com.example.service_provide.service;
+package com.example.provide.service;
 
 
 import com.example.comon.Service.ProvideService;

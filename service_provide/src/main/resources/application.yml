@@ -1,22 +1,31 @@
-server:
-  port: 8081
+spring:
+  application:
+    name: producer-demo
+  profiles:
+    active: dev
+  cloud:
+    nacos:
+      config:
+        server-addr: 127.0.0.1:8848
+        file-extension: yaml
 
 application:
   #版本号
   version: 1.0.0
 
 dubbo:
-  application:
-    #应用名称，每个dubbo应用的名称都是唯一的
-    name: producer-demo
+#  application:
+#    #应用名称，每个dubbo应用的名称都是唯一的    The default value of dubbo.application.name is ${spring.application.name}
+#    name: producer-demo
   registry:
     #注册中心
-    address: zookeeper://127.0.0.1:2181
+#    address: zookeeper://127.0.0.1:2181
+     address: nacos://127.0.0.1:8848
   protocol:
     #协议名称
     name: dubbo
     #服务暴露端口
-    port: 20880
+    port: -1
   scan:
     #扫描服务注册bean,即service实现类所在的包
-    basePackages: com.example.privide.service
+    basePackages: com.example.privide

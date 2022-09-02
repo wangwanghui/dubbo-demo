@@ -1,14 +1,29 @@
-server:
-  port: 8082
+spring:
+  application:
+    name: consumer-demo
+  cloud:
+    nacos:
+      config:
+        server-addr: 127.0.0.1:8848
+        file-extension: yaml
 
 application:
   #版本号
   version: 1.0.0
 
 dubbo:
-  application:
-    #应用名称，每个dubbo应用的名称都是唯一的
-    name: consumer-demo
+  protocol:
+    # dubbo 协议名称
+    name: dubbo
+    # dubbo 协议端口（ -1 表示自增端口，从 20880 开始）
+    port: -1
+#  application:
+#    #应用名称，每个dubbo应用的名称都是唯一的   The default value of dubbo.application.name is ${spring.application.name}
+#    name: consumer-demo
   registry:
     #注册中心
-    address: zookeeper://localhost:2181
+    #address: zookeeper://localhost:2181
+    address: nacos://127.0.0.1:8848
+  scan:
+    #扫描服务注册bean,即service实现类所在的包
+    basePackages: com.example.consumer

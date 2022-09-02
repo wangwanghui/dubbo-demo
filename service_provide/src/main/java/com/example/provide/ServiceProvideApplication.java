@@ -1,4 +1,4 @@
-package com.example.service_provide;
+package com.example.provide;
 
 import org.apache.dubbo.config.spring.context.annotation.EnableDubbo;
 import org.springframework.boot.SpringApplication;

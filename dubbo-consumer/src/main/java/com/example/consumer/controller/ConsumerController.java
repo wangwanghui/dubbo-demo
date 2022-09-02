@@ -1,4 +1,4 @@
-package com.example.consumer.Controller;
+package com.example.consumer.controller;
 
 
 import com.example.comon.Service.ProvideService;
