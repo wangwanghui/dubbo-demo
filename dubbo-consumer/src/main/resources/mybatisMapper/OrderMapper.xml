@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.consumer.dao.OrderMapper">
+
+    <insert id="addNewOrder" parameterType="com.example.consumer.entity.OrderDO">
+        INSERT INTO order_tbl(order_id,amount,product_name,quantity)
+        VALUES(#{orderId},#{amount},#{productName},#{quantity})
+    </insert>
+
+</mapper>

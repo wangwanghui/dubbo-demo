@@ -1,13 +1,19 @@
 spring:
   application:
     name: producer-demo
+  main:
+    # 允许循环依赖，避免启动时"com.alibaba.cloud.seata.rest.SeataRestTemplateAutoConfiguration"循环依赖报错
+    allow-circular-references: true
   profiles:
     active: dev
   cloud:
     nacos:
+#      discovery:
+#        # 服务注册地址
+#        server-addr: 114.132.77.125:8848
       config:
-        server-addr: 127.0.0.1:8848
-        file-extension: yaml
+        server-addr: 114.132.77.125:8848
+        file-extension: yml
 
 application:
   #版本号
@@ -20,7 +26,7 @@ dubbo:
   registry:
     #注册中心
 #    address: zookeeper://127.0.0.1:2181
-     address: nacos://127.0.0.1:8848
+     address: nacos://114.132.77.125:8848
   protocol:
     #协议名称
     name: dubbo
@@ -28,4 +34,4 @@ dubbo:
     port: -1
   scan:
     #扫描服务注册bean,即service实现类所在的包
-    basePackages: com.example.privide
+    basePackages: com.example.provide
